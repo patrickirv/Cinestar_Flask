@@ -1,0 +1,78 @@
+﻿{% extends 'plantilla.html' %}
+{% block content %}
+
+{% for C in cine %}
+<h2>{{C[1]}} </h2>
+<div class="cine-info">
+	<div class="cine-info datos">
+		<p> {{C[4]}} - {{C[6]}} </p>
+		<p>Teléfono: {{C[5]}} anexo 865</p><br/>
+		{% endfor %}
+
+
+		<div class="tabla">
+			{% for T in tarifas %}
+			{% if loop.index is even %}
+			<div class="fila">
+				<div class="celda-titulo">{{T[0]}}</div>
+				<div class="celda"> {{T[1]}} </div>
+			</div>
+			{% else %}
+			<div class="fila impar">
+				<div class="celda-titulo">{{T[0]}}</div>
+				<div class="celda">{{T[1]}}</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+		<div class="aviso">
+			<p>A partir del 1ro de julio de 2016, Cinestar Multicines realizará el cobro de la comisión de S/. 1.00
+				adicional al tarifario vigente, a los usuarios que compren sus entradas por el aplicativo de Cine Papaya
+				para Cine Star Comas, Excelsior, Las Américas, Benavides, Breña, San Juan, UNI, Aviación, Sur, Porteño,
+				Tumbes y Tacna.</p>
+		</div>
+	</div>
+	{% for C1 in cine %}
+	<img src='/static/img/cine/{{C1[0]}}.2.jpg' />
+	{% endfor %}
+	<br/><br/>
+	<h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br/>
+	<div class="cine-info peliculas">
+		<div class="tabla">
+			<div class="fila">
+				<div class="celda-cabecera">Películas</div>
+				<div class="celda-cabecera">Horarios</div>
+			</div>
+			{% for P in peliculas %}
+			{% if loop.index is even %}
+			<div class="fila impar">
+				<div class="celda-titulo">{{P[0]}}</div>
+				<div class="celda">{{P[1]}}</div>
+			</div>
+			{% else %}
+			<div class="fila">
+				<div class="celda-titulo">{{P[0]}}</div>
+				<div class="celda">{{P[1]}}</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<div>
+
+	{% for C2 in cine %}
+	<img style="float:left;" src='/static/img/cine/{{C2[0]}}.3.jpg' alt="Imagen del cine" />
+	{% endfor %}
+
+	<span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
+		Horario de atención de juegos es de 12:00 m hasta las 10:30 pm.
+		<br/><br/>
+		Visitános y diviértete con nosotros.
+		<br/><br/>
+		<b>CINESTAR</b>, siempre pensando en tí.
+	</span>
+</div>
+</div>
+
+{% endblock %}

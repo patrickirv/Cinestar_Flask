@@ -1,0 +1,20 @@
+﻿{% extends 'plantilla.html' %}<br /
+{% block content %}
+<br/>
+<h1>Nuestros Cines</h1><br/>
+
+
+{% for C in cines %}
+<div class="contenido-cine	">
+	<img src='/static/img/cine/{{C[0]}}.1.jpg' width="227" height="170" />
+	<div class="datos-cine">
+		<h4>{{C[1]}}</h4><br/>
+		<span>{{C[4]}} - {{C[6]}}<br/><br/>Teléfono: {{C[5]}}</span>
+	</div>
+	<br/>
+	<a href='cine/{{C[0]}}'>
+		<img src="{{url_for('static', filename='img/varios/ico-info2.png')}}" width="150" height="40" />
+	</a>
+</div>
+{% endfor %}
+{% endblock %}
